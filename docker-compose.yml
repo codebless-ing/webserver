@@ -10,6 +10,7 @@ services:
             - ./nginx/conf/:/etc/nginx/conf.d/:ro
             - ${BKP_DIR}/certs/www/:/var/www/certbot/:ro
             - ${BKP_DIR}/certs/conf/:/etc/nginx/ssl/:ro
+            - $(WWW_DIR):/www/data/:ro
     certbot:
         image: certbot/certbot:latest
         container_name: certbot
