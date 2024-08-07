@@ -1,18 +1,18 @@
 services:
-  webserver:
-    image: nginx:latest
-    container_name: webserver
-    ports:
-      - 80:80
-      - 443:443
-    restart: always
-    volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ${BKP_DIR}/certs/www/:/var/www/certbot/:ro
-      - ${BKP_DIR}/certs/conf/:/etc/nginx/ssl/:ro
-  certbot:
-    image: certbot/certbot:latest
-    container_name: certbot
-    volumes:
-      - ${BKP_DIR}/certs/www/:/var/www/certbot/:rw
-      - ${BKP_DIR}/certs/conf/:/etc/letsencrypt/:rw
+    webserver:
+        image: nginx:latest
+        container_name: webserver
+        ports:
+            - 80:80
+            - 443:443
+        restart: always
+        volumes:
+            - ./nginx/conf/:/etc/nginx/conf.d/:ro
+            - ${BKP_DIR}/certs/www/:/var/www/certbot/:ro
+            - ${BKP_DIR}/certs/conf/:/etc/nginx/ssl/:ro
+    certbot:
+        image: certbot/certbot:latest
+        container_name: certbot
+        volumes:
+            - ${BKP_DIR}/certs/www/:/var/www/certbot/:rw
+            - ${BKP_DIR}/certs/conf/:/etc/letsencrypt/:rw

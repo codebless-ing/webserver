@@ -2,15 +2,15 @@
 # POSIX
 # Usage: certRenew
 
-ED="$( cd "$( /usr/bin/dirname "$0" )" && pwd )" # Execution Dir
+ED="$(cd "$(/usr/bin/dirname "$0")" && pwd)" # Execution Dir
 cd $ED
-cd .. # Go to the project dir
+cd ..           # Go to the project dir
 PROJ_DIR=$(pwd) # Save it
 
 # --------------------------------------------------
 # Show help
 show_help() {
-cat << EOF
+	cat <<EOF
 Usage: ${0##*/} [OPTIONS]...
 Try to renew all expiring certs.
 
@@ -26,8 +26,9 @@ EOF
 ################
 while :; do
 	case $1 in
-	-h|-\?|--help)
-		show_help; exit;
+	-h | -\? | --help)
+		show_help
+		exit
 		;;
 
 	--) # End of all options
@@ -38,7 +39,7 @@ while :; do
 		echo 'Option "%s" is unknown. Ignoring.' "$1"
 		;;
 	*) # Default: No more options, ends the loop.
-		break
+		break ;;
 	esac
 
 	shift
