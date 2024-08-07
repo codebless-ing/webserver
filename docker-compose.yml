@@ -1,6 +1,6 @@
 services:
     webserver:
-        image: nginx:latest
+        image: nginx:${NGINX_VERSION:-latest}
         container_name: webserver
         ports:
             - 80:80
